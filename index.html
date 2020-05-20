@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>カレンダー</title>
+<style>
+body {
+  background: #000;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ul li {
+  background: #050505;
+  border-radius: 5vh;
+  color: #fff;
+  display: inline-block;
+  font-family: "Hiragino Maru Gothic ProN";
+  font-size: 60vh;
+  font-weight: 700;
+  line-height: 1;
+  margin: 10vh 2vh;
+  padding: 10vh 0;
+  width: 80vh;
+}
+
+.sunday {
+  color: #d50000;
+}
+
+.saturday {
+  color: #0060ff;
+}
+</style>
+</head>
+<body>
+<div>
+  <ul>
+    <li id="date"></li><li id="day"></li>
+  </ul>
+</div>
+</body>
+<script>
+  const today = new Date();
+  document.getElementById("date").innerHTML = today.getDate();
+  document.getElementById("day").innerHTML = ["日", "月", "火", "水", "木", "金", "土"][today.getDay()];
+  if(today.getDay() == 0) {
+    document.getElementById("day").className = "sunday";
+  }
+  else if(today.getDay() == 6) {
+    document.getElementById("day").className = "saturday";
+  }
+</script>
+</html>
